@@ -1,3 +1,6 @@
+-------------------------------------------
+Translated text
+-------------------------------------------
 
 readme for pub
 
@@ -5,17 +8,48 @@ readme for pub
 http://code.google.com/p/imageraker/
 
 
-1. ½ÇÁ¦ ¹öÀü°úÀÇ Â÷ÀÌÁ¡
-¹öÀüÃ¼Å© ¹× ¿¡·¯ Àü¼Û¿ë url »èÁ¦.
-¹èÆ÷¿ë »çÀÌ´× ¹× ¼Â¾÷ ÇÁ·ÎÁ§Æ® »èÁ¦
+1. Differences from the actual version
+Version check and delete url for error transmission.
+Delete signing and setup project for deployment
 
-Å×½ºÆ®¿ë »çÀÌ´×(pfx) ºñ¹ø 
+Test sanding (pfx)
 test123
 
 
 2. post build event
-os°¡ 32ºñÆ®³Ä 64ºñÆ®³Ä¿¡ µû¶ó ´Ù¸§. ´ÙÀ½Àº À©7 64ºñÆ®¿¡¼­ »ç¿ëÇÑ post build eventÀÓ.
-(°³¹ß¿ëÀ¸·Î vs10À» »ç¿ëÇÏÁö¸¸ ¾î¼Àºí¸® µî·ÏÀ» À§ÇØ ¾Æ·¡¿Í °°ÀÌ vs8ÀÌ ÇÊ¿ä.)
+Depending on whether os is 32 or 64 bits. The following is a post build event used in Win 7 64-bit.
+(We use vs10 for development, but vs8 is required for assembly registration.)
+
+"Microsoft Visual Studio 8 \ SDK \ v2.0 \ Bin \ gacutil" / if "$ (TargetDir) Interop.SHDocVw.dll" C: \ Program Files
+"$ (TargetPath)" / if "" C: \ Program Files (x86) \ Microsoft Visual Studio 8 \ SDK \ v2.0 \ Bin \ gacutil "
+"C: \ WINDOWS \ Microsoft.NET \ Framework \ v2.0.50727 \ regasm" / unregister "$ (TargetPath)"
+"C: \ WINDOWS \ Microsoft.NET \ Framework \ v2.0.50727 \ regasm" / register "$ (TargetPath)"
+
+
+3. The ie path for debugging is also used on 64-bit as follows.
+
+C: \ Program Files (x86) \ Internet Explorer \ iexplore.exe
+
+-------------------------------------------
+Original text
+-------------------------------------------
+readme for pub
+
+-home
+http://code.google.com/p/imageraker/
+
+
+1. ì‹¤ì œ ë²„ì „ê³¼ì˜ ì°¨ì´ì 
+ë²„ì „ì²´í¬ ë° ì—ëŸ¬ ì „ì†¡ìš© url ì‚­ì œ.
+ë°°í¬ìš© ì‚¬ì´ë‹ ë° ì…‹ì—… í”„ë¡œì íŠ¸ ì‚­ì œ
+
+í…ŒìŠ¤íŠ¸ìš© ì‚¬ì´ë‹(pfx) ë¹„ë²ˆ 
+test123
+
+
+2. post build event
+osê°€ 32ë¹„íŠ¸ëƒ 64ë¹„íŠ¸ëƒì— ë”°ë¼ ë‹¤ë¦„. ë‹¤ìŒì€ ìœˆ7 64ë¹„íŠ¸ì—ì„œ ì‚¬ìš©í•œ post build eventì„.
+(ê°œë°œìš©ìœ¼ë¡œ vs10ì„ ì‚¬ìš©í•˜ì§€ë§Œ ì–´ì…ˆë¸”ë¦¬ ë“±ë¡ì„ ìœ„í•´ ì•„ë˜ì™€ ê°™ì´ vs8ì´ í•„ìš”.)
 
 "C:\Program Files (x86)\Microsoft Visual Studio 8\SDK\v2.0\Bin\gacutil" /if "$(TargetDir)Interop.SHDocVw.dll"
 "C:\Program Files (x86)\Microsoft Visual Studio 8\SDK\v2.0\Bin\gacutil" /if "$(TargetPath)"
@@ -23,7 +57,7 @@ os°¡ 32ºñÆ®³Ä 64ºñÆ®³Ä¿¡ µû¶ó ´Ù¸§. ´ÙÀ½Àº À©7 64ºñÆ®¿¡¼­ »ç¿ëÇÑ post build even
 "C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\regasm" /register "$(TargetPath)"
 
 
-3. µğ¹ö±ëÀ» À§ÇÑ ie°æ·Î ¿ª½Ã 64ºñÆ®¿¡¼­´Â ¾Æ·¡¿Í °°ÀÌ »ç¿ëÇÑ´Ù.
+3. ë””ë²„ê¹…ì„ ìœ„í•œ ieê²½ë¡œ ì—­ì‹œ 64ë¹„íŠ¸ì—ì„œëŠ” ì•„ë˜ì™€ ê°™ì´ ì‚¬ìš©í•œë‹¤.
 
 C:\Program Files (x86)\Internet Explorer\iexplore.exe
 
